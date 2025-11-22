@@ -1,0 +1,29 @@
+@startuml
+title UML Diagram - Student & StudentRepository
+
+class Student {
+  - npm : String <<final>>
+  - name : String
+  - gpa : double
+  --
+  + Student(String, String, double)
+  + getNpm() : String
+  + getName() : String
+  + setName(String) : void
+  + getGpa() : double
+  + setGpa(double) : void
+  + display() : String
+}
+
+class StudentRepository {
+  - students : Map<String, Student>
+  --
+  + add(Student) : void
+  + remove(String) : void
+  + findByNpm(String) : Student
+  + getStudentsByGpa(double) : List<Student>
+}
+
+StudentRepository "1" o-- "*" Student
+
+@enduml

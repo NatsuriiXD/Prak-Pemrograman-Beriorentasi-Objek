@@ -1,0 +1,29 @@
+@startuml
+title UML Diagram - Bank & BankAccount
+
+class BankAccount {
+  - accountNumber : String
+  - ownerName : String
+  - balance : double
+  --
+  + BankAccount(String, String, double)
+  + getAccountNumber() : String
+  + getOwnerName() : String
+  + getBalance() : double
+  + setOwnerName(String) : void
+  - setBalance(double) : void
+  + deposit(double) : void
+  + withdraw(double) : void
+}
+
+class Bank {
+  - accounts : Map<String, BankAccount>
+  --
+  + createAccount(String, String, double) : void
+  + findAccount(String) : BankAccount
+  + transfer(String, String, double) : void
+}
+
+Bank "1" o-- "*" BankAccount
+
+@enduml
