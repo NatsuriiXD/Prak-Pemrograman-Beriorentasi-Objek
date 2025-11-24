@@ -1,0 +1,28 @@
+@startuml
+
+class Vehicle {
+    - make : String
+    - model : String
+    - year : int
+    + Vehicle(make, model, year)
+    + start() : void
+    + stop() : void
+    + getInfo() : String
+}
+
+class Car {
+    - numDoors : int
+    + Car(make, model, year, numDoors)
+    + getInfo() : String
+}
+
+class Motorcycle {
+    - hasSidecar : boolean
+    + Motorcycle(make, model, year, hasSidecar)
+    + getInfo() : String
+}
+
+Vehicle <|-- Car
+Vehicle <|-- Motorcycle
+
+@enduml

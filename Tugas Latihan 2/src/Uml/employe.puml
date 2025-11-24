@@ -1,0 +1,23 @@
+@startuml
+
+class Employee {
+    - name : String
+    - salary : double
+    + Employee(name, salary)
+    + calculateBonus() : double
+}
+
+class Manager {
+    + Manager(name, salary)
+    + calculateBonus() : double  // 10% salary
+}
+
+class Staff {
+    + Staff(name, salary)
+    + calculateBonus() : double  // 5% salary
+}
+
+Employee <|-- Manager
+Employee <|-- Staff
+
+@enduml
