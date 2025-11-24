@@ -1,0 +1,29 @@
+@startuml
+
+interface TaxCalculator {
+    + calculate(income: double): double
+}
+
+class FlatTaxCalculator {
+    - rate: double
+    + FlatTaxCalculator(rate: double)
+    + calculate(income: double): double
+}
+
+class ProgressiveTaxCalculator {
+    + calculate(income: double): double
+}
+
+class Employee {
+    - name: String
+    - income: double
+    - calculator: TaxCalculator
+    + Employee(name: String, income: double, calculator: TaxCalculator)
+    + printTax(): void
+}
+
+TaxCalculator <|.. FlatTaxCalculator
+TaxCalculator <|.. ProgressiveTaxCalculator
+Employee --> TaxCalculator
+
+@enduml

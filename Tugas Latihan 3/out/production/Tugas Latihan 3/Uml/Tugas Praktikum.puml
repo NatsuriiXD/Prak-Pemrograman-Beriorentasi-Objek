@@ -1,0 +1,25 @@
+@startuml
+
+abstract class Document {
+    - title: String
+    - pages: int
+    + print(): void
+}
+
+class PdfDocument {
+    + print(): void
+}
+
+class WordDocument {
+    + print(): void
+}
+
+class Printer {
+    + printAll(docs: List<Document>): void
+}
+
+Document <|-- PdfDocument
+Document <|-- WordDocument
+Printer --> Document
+
+@enduml

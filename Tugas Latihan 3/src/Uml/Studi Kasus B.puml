@@ -1,0 +1,24 @@
+@startuml
+
+abstract class Document {
+    - title: String
+    + print(): void
+}
+
+class PdfDocument {
+    + print(): void
+}
+
+class WordDocument {
+    + print(): void
+}
+
+class Printer {
+    + print(doc: Document): void
+}
+
+Document <|-- PdfDocument
+Document <|-- WordDocument
+Printer --> Document
+
+@enduml
